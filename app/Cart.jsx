@@ -32,11 +32,18 @@ export default function Cart() {
         keyExtractor={item => item.id}
       />
 
+      <TouchableOpacity>
+        <Text style={styles.text2}>Summary goes here</Text>
+      </TouchableOpacity>
+      
+
       <TouchableOpacity style={styles.completeOrderButton} onPress={handlePress}>
         <Text style={styles.buttonText}>
           Complete Order
         </Text>
       </TouchableOpacity>
+
+      
       </ScrollView>
     </>
   );
@@ -59,6 +66,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     color: "white"
+  },
+
+  text2:{
+    fontSize: 15,
+    padding: 15,
+    fontWeight: "bold"
   },
 
   completeOrderButton: {
