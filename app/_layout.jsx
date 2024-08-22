@@ -20,17 +20,12 @@ export default function RootLayout() {
 
         <Tabs.Screen name="Cart" options={{tabBarIcon: ({ color, size }) => (
             <Feather name="shopping-cart" size={24} color={color} />
-          ),}}
+          ),title: "Cart",}}
         />
 
         <Tabs.Screen name="Form" options={{tabBarIcon: ({ color, size }) => (
-            <Feather name="file" size={24} color={color} />
-          ),}}
-        />
-
-        <Tabs.Screen name="Profile" options={{tabBarIcon: ({ color, size }) => (
-            <Feather name="user" size={24} color={color} />
-          ),}}
+            <Feather name="credit-card" size={24} color={color} />
+          ),title: "Checkout",}}
         />
       </Tabs>
     </CartContextProvider>

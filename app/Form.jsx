@@ -2,7 +2,7 @@ import { Text, View, StyleSheet, TextInput, Alert, TouchableOpacity } from "reac
 import { useState } from "react";
 import Feather from "@expo/vector-icons/Feather";
 
-export default function Form({ onNext }) {
+export default function Checkout({ onNext }) {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
