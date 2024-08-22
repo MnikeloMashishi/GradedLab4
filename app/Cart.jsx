@@ -8,11 +8,6 @@ export default function Cart() {
     { id: '1', name: 'Kota', quantity: 3, price: 40 },
     { id: '2', name: 'SchoolBoy', quantity: 2, price: 40 },
     { id: '3', name: 'Fish', quantity: 4, price: 40 },
-    { id: '4', name: 'Kota', quantity: 3, price: 40 },
-    { id: '5', name: 'SchoolBoy', quantity: 2, price: 40 },
-    { id: '6', name: 'Fish', quantity: 4, price: 40 },
-    { id: '7', name: 'Kota', quantity: 3, price: 40 },
-    { id: '8', name: 'SchoolBoy', quantity: 2, price: 40 },
   ];
 
   const renderItem = ({ item }) => (
