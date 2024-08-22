@@ -5,7 +5,7 @@ export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCart();
 
   const handlePress = () => {
-    alert('Order Complete', 'Thank you for your order!');
+    alert('Order Complete. Thank you for your order! Proceed to form screen to complete payment');
     clearCart();
   };
   // const cartItems = [
@@ -28,7 +28,7 @@ export default function Cart() {
       <Text style={styles.itemQuantity}>Quantity: {item.quantity}</Text>
       <Text style={styles.itemPrice}>Price: R{(item.price * item.quantity).toFixed(2)}</Text>
       <TouchableOpacity  style={styles.removeItemButton} onPress={() => removeFromCart(item.id)}>
-        <Text style={styles.buttonText}>Remove</Text>
+        <Text style={styles.buttonText}>Remove Item</Text>
       </TouchableOpacity>
     </View>
   );
@@ -67,7 +67,7 @@ export default function Cart() {
 
       <TouchableOpacity style={styles.completeOrderButton} onPress={handlePress}>
         <Text style={styles.buttonText}>
-          Complete Order
+          Proceed To Checkout
         </Text>
       </TouchableOpacity>
 
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
 
   removeItemButton:{
-    width: "22%",
+    width: "32%",
     marginTop: 10,
     borderRadius: 8,
     backgroundColor: "purple",
