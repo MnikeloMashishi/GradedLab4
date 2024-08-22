@@ -1,35 +1,68 @@
 import { Text, View, StyleSheet, ScrollView, SafeAreaView, FlatList, TouchableOpacity } from "react-native";
+import { useCart } from '../hooks/useCart';
 
 export default function Cart() {
+  const { cart, removeFromCart, clearCart } = useCart();
+
   const handlePress = () => {
     alert('Order Complete', 'Thank you for your order!');
+    clearCart();
   };
-  const cartItems = [
-    { id: '1', name: 'Kota', quantity: 3, price: 40 },
-    { id: '2', name: 'SchoolBoy', quantity: 2, price: 40 },
-    { id: '3', name: 'Fish', quantity: 4, price: 40 },
-  ];
+  // const cartItems = [
+  //   { id: '1', name: 'Kota', quantity: 3, price: 40 },
+  //   { id: '2', name: 'SchoolBoy', quantity: 2, price: 40 },
+  //   { id: '3', name: 'Fish', quantity: 4, price: 40 },
+  // ];
+
+  // const renderItem = ({ item }) => (
+  //   <View style={styles.itemContainer}>
+  //     <Text style={styles.itemName}>{item.name}</Text>
+  //     <Text style={styles.itemQuantity}>Quantity: {item.quantity}</Text>
+  //     <Text style={styles.itemPrice}>Price: R{item.price.toFixed(2)}</Text>
+  //   </View>
+  // );
 
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.itemName}>{item.name}</Text>
       <Text style={styles.itemQuantity}>Quantity: {item.quantity}</Text>
-      <Text style={styles.itemPrice}>Price: R{item.price.toFixed(2)}</Text>
+      <Text style={styles.itemPrice}>Price: R{(item.price * item.quantity).toFixed(2)}</Text>
+      <TouchableOpacity  style={styles.removeItemButton} onPress={() => removeFromCart(item.id)}>
+        <Text style={styles.buttonText}>Remove</Text>
+      </TouchableOpacity>
     </View>
   );
+
+  const calculateTotal = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+  };
+
   return (
     <>
       <ScrollView>
-        <Text style={styles.text}>Shopping Cart</Text>
-        <FlatList
+        <View>
+          <Text style={styles.text}>
+            Shopping Cart
+          </Text>
+        </View>
+        
+        {/* <FlatList
         data={cartItems}
         renderItem={renderItem}
         keyExtractor={item => item.id}
+      /> */}
+
+      <FlatList
+        data={cart}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
       />
 
-      <TouchableOpacity>
+      {/* <TouchableOpacity>
         <Text style={styles.text2}>Summary goes here</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+
+      <Text style={styles.text2}>Total: R{calculateTotal()}</Text>
       
 
       <TouchableOpacity style={styles.completeOrderButton} onPress={handlePress}>
@@ -70,6 +103,7 @@ const styles = StyleSheet.create({
   },
 
   completeOrderButton: {
+    margin: 4,
     backgroundColor: 'purple',
     padding: 15,
     borderRadius: 10,
@@ -81,6 +115,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
+  removeItemButton:{
+    width: "22%",
+    marginTop: 10,
+    borderRadius: 8,
+    backgroundColor: "purple",
+    padding: 10,
+  },
+
 
   itemContainer: {
     margin:5,
@@ -89,7 +131,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ddd',
     borderTopWidth:1,
     borderTopColor: "#ddd",
-    // borderRadius: ,
   },
   itemName: {
     fontSize: 18,
