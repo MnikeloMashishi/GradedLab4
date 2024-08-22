@@ -40,7 +40,7 @@ export default function Index() {
       {/* <SafeAreaView style={styles.screenContainer}> */}
       <ScrollView>
           <Text style={styles.text}>
-            Menu
+            GourmetBites
           </Text>
 
         <FlatList

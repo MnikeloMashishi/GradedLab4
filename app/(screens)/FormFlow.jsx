@@ -27,7 +27,6 @@ export default function FormFlow() {
 
   const handleSubmit = () => {
     Alert.alert('Success', 'Order Complete! Thank you for your submission.');
-    // You can also process the final form data here, like sending it to a server.
     setFormData({
       userName: '',
       userEmail: '',
@@ -40,7 +39,7 @@ export default function FormFlow() {
       expDate: '',
       cvv: '',
     });
-    setCurrentStep(1); // Reset the form flow
+    setCurrentStep(1);
   };
 
   return (

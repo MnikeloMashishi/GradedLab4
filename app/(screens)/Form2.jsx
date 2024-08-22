@@ -6,7 +6,7 @@ import { router} from "expo-router"
 export default function Form2({ onNext, prevData }) {
 
   const handleNavigation = () => {
-    router.push("./Form3")
+    router.push("./Form3") // go to 3rd part of form
   };
 
   const [userAddress, setUserAddress] = useState('');

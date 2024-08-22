@@ -6,7 +6,7 @@ import { router} from "expo-router"
 export default function Checkout({ onNext }) {
 
   const handleNavigation = () => {
-    router.push("./Form2")
+    router.push("./Form2") //go to second part of form
   };
 
   const [userName, setUserName] = useState('');

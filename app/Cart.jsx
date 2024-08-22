@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, ScrollView, SafeAreaView, FlatList, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, ScrollView, SafeAreaView, FlatList, TouchableOpacity, Alert } from "react-native";
 import { useCart } from '../hooks/useCart';
 
 
@@ -6,7 +6,7 @@ export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCart();
 
   const handlePress = () => {
-    alert('Order Complete. Thank you for your order! Proceed to form screen to complete payment');
+    Alert.alert('Success','Order Complete. Thank you for your order! Proceed to checkout to complete payment');
     clearCart();
   };
   // const cartItems = [
@@ -51,28 +51,25 @@ export default function Cart() {
         data={cartItems}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-      /> */}
+        /> */}
 
-      <FlatList
-        data={cart}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+        <FlatList
+          data={cart}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
 
-      {/* <TouchableOpacity>
-        <Text style={styles.text2}>Summary goes here</Text>
-      </TouchableOpacity> */}
+        {/* <TouchableOpacity>
+          <Text style={styles.text2}>Summary goes here</Text>
+        </TouchableOpacity> */}
 
-      <Text style={styles.text2}>Total: R{calculateTotal()}</Text>
-      
-
-      <TouchableOpacity style={styles.completeOrderButton} onPress={handlePress}>
-        <Text style={styles.buttonText}>
-          Proceed To Checkout
-        </Text>
-      </TouchableOpacity>
-
-      
+        <Text style={styles.text2}>Total: R{calculateTotal()}</Text>
+        
+        <TouchableOpacity style={styles.completeOrderButton} onPress={handlePress}>
+          <Text style={styles.buttonText}>
+            Proceed To Checkout
+          </Text>
+        </TouchableOpacity>      
       </ScrollView>
     </>
   );
