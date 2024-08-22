@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, ScrollView, SafeAreaView, FlatList, TouchableOpacity } from "react-native";
 import { useCart } from '../hooks/useCart';
 
+
 export default function Cart() {
   const { cart, removeFromCart, clearCart } = useCart();
 

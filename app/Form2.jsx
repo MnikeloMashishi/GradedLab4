@@ -2,23 +2,20 @@ import { Text, View, StyleSheet, TextInput, Alert, TouchableOpacity } from "reac
 import { useState } from "react";
 import Feather from "@expo/vector-icons/Feather";
 
-export default function Form({ onNext }) {
-  const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+export default function Form2({ onNext, prevData }) {
+  const [userAddress, setUserAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zip, setZip] = useState('');
 
   const handleNext = () => {
     // validate user input
-    if (!userName || !userEmail || !phoneNumber) {
+    if (!userAddress || !city || !state || !zip) {
       Alert.alert('Error', 'Please fill in all fields.');
       return;
     }
-    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(userEmail)) {
-      Alert.alert('Error', 'Invalid email address.');
-      return;
-    }
-    if (!/^\d{10}$/.test(phoneNumber)) {
-      Alert.alert('Error', 'Phone number must be 10 digits.');
+    if (!/^\d{5}$/.test(zip)) {
+      Alert.alert('Error', 'Zip code must be 5 digits.');
       return;
     }
     if (onNext){
@@ -33,19 +30,24 @@ export default function Form({ onNext }) {
       {/* input fields for user input */}
       <View>
         <Text style={styles.text2}>
-          <Feather name="user" size={24} color="black" />
-          Name: </Text>
-        <TextInput style={styles.inputField} value={userName} onChangeText={setUserName}/>
+            <Feather name="home" size={24} color="black" />
+            Address: </Text>
+        <TextInput style={styles.inputField} value={userAddress} onChangeText={setUserAddress}/>
       
         <Text style={styles.text2}>
-          <Feather name="mail" size={24} color="black" />
-          Email: </Text>
-        <TextInput style={styles.inputField} value={userEmail} onChangeText={setUserEmail} keyboardType="email-address"/>
+            <Feather name="map-pin" size={24} color="black" />
+            City: </Text>
+        <TextInput style={styles.inputField} value={city} onChangeText={setCity} />
       
         <Text style={styles.text2}>
-        <Feather name="phone" size={24} color="black" />
-          Phone Number: </Text>
-        <TextInput style={styles.inputField} value={phoneNumber} onChangeText={setPhoneNumber} keyboardType="phone-pad"/>
+            <Feather name="globe" size={24} color="black" />
+            State: </Text>
+        <TextInput style={styles.inputField} value={state} onChangeText={setState} />
+
+        <Text style={styles.text2}>
+            <Feather name="tag" size={24} color="black" />
+            ZIP Code: </Text>
+        <TextInput style={styles.inputField} value={zip} onChangeText={setZip} keyboardType="phone-pad"/>
       
         <TouchableOpacity onPress={handleNext} style={styles.nextButton}>
           <Text style={styles.buttonText}>
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
   },
 
   text2: {
-    fontSize: 20,
+    fontSize: 18,
     paddingLeft: 8,
     marginVertical: 8,
   },
