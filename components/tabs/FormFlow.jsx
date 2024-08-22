@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Alert } from 'react-native';
-import Form from '../Form';
+import Form from '../../app/Form';
 // import
 // import Form3 from '/Form3'; // Import Form3
 
