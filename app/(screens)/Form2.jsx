@@ -1,8 +1,14 @@
 import { Text, View, StyleSheet, TextInput, Alert, TouchableOpacity } from "react-native";
 import { useState } from "react";
 import Feather from "@expo/vector-icons/Feather";
+import { router} from "expo-router"
 
 export default function Form2({ onNext, prevData }) {
+
+  const handleNavigation = () => {
+    router.push("./Form3")
+  };
+
   const [userAddress, setUserAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -21,6 +27,7 @@ export default function Form2({ onNext, prevData }) {
     if (onNext){
       onNext({ userName, userEmail, phoneNumber })
     }
+    handleNavigation();
   }
 
   return (

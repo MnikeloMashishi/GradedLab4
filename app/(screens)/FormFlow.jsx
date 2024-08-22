@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Alert } from 'react-native';
-import Form from '../../app/Form';
-// import
-// import Form3 from '/Form3'; // Import Form3
+import Form from '../Form';
+import Form2 from './Form2';
+import Form3 from './Form3';
 
 export default function FormFlow() {
   const [formData, setFormData] = useState({
@@ -46,8 +46,8 @@ export default function FormFlow() {
   return (
     <View>
       {currentStep === 1 && <Form onNext={handleNext} />}
-      {/* {currentStep === 2 && <Form2 onNext={handleNext} />} */}
-      {/* {currentStep === 3 && <Form3 onSubmit={handleSubmit} />} */}
+      {currentStep === 2 && <Form2 onNext={handleNext} />}
+      {currentStep === 3 && <Form3 onSubmit={handleSubmit} />}
     </View>
   );
 }

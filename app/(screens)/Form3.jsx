@@ -10,18 +10,18 @@ export default function Form3({ prevData, onSubmit }) {
   const handleSubmit = () => {
     // validate user input
     if (!/^\d{16}$/.test(cardNumber)) {
-        Alert.alert('Error', 'Credit card number must be 16 digits.');
-        return;
+      Alert.alert('Error', 'Credit card number must be 16 digits.');
+      return;
       }
-      if (!/^\d{2}\/\d{2}$/.test(expiryDate)) {
-        Alert.alert('Error', 'Expiration date must be in MM/YY format.');
-        return;
-      }
-      if (!/^\d{3}$/.test(cvv)) {
-        Alert.alert('Error', 'CVV must be 3 digits.');
-        return;
-      }
-      onSubmit();
+    if (!/^\d{2}\/\d{2}$/.test(expDate)) {
+      Alert.alert('Error', 'Expiration date must be in MM/YY format.');
+      return;
+    }
+    if (!/^\d{3}$/.test(cvv)) {
+      Alert.alert('Error', 'CVV must be 3 digits.');
+      return;
+    }
+    Alert.prompt('Complete','Payment Processed')
   }
 
   return (
