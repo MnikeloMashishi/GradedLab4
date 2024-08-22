@@ -12,12 +12,12 @@ export default function Index() {
   };
 
   const foodMenu = [
-    { id: '1', name: 'Kota', image: 'https://via.placeholder.com/150', price: 'R40.00' },
-    { id: '2', name: 'SchoolBoy', image: 'https://via.placeholder.com/150', price: 'R40.00' },
-    { id: '3', name: 'Pap', image: 'https://via.placeholder.com/150', price: 'R40.00' },
-    { id: '4', name: 'Pizza', image: 'https://via.placeholder.com/150',  price: 'R40.00' },
-    { id: '5', name: 'Magwinya', image: 'https://via.placeholder.com/150', price: 'R40.00' },
-    { id: '6', name: 'Fish', image: 'https://via.placeholder.com/150', price: 'R40.00' },
+    { id: '1', name: 'Kota', image: 'https://essentialflavours.co.za/wp-content/uploads/2023/09/gatsby.png', price: 'R40.00' },
+    { id: '2', name: 'Shawarma', image: 'https://theperfecttide.com/wp-content/uploads/2022/06/DSC_5536-1-scaled.jpg', price: 'R40.00' },
+    { id: '3', name: 'Burger', image: 'https://www.thespruceeats.com/thmb/UpVWAcHnFEe_KvQpYsR1a7U-WY0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-your-best-grilled-burger-recipe-7511041-hero-C-c5080fa5f97c4c2b908968527f8a851b.jpg', price: 'R40.00' },
+    { id: '4', name: 'Pizza', image: 'https://www.allrecipes.com/thmb/D73VvwH_cG06pVzh05oitTocYV8=/0x512/filters:no_upscale():max_bytes(150000):strip_icc()/48727-Mikes-homemade-pizza-DDMFS-beauty-4x3-BG-2974-a7a9842c14e34ca699f3b7d7143256cf.jpg',  price: 'R40.00' },
+    { id: '5', name: 'Burrito', image: 'https://static01.nyt.com/images/2024/01/10/multimedia/AS-Burrito-vzhk/AS-Burrito-vzhk-superJumbo.jpg', price: 'R40.00' },
+    { id: '6', name: 'Pasta', image: 'https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg', price: 'R40.00' },
   ];
 
   const renderItem = ({ item }) => (
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
 
   itemContainer: {
-    // backgroundColor: '#fff',
+    backgroundColor: '#fff',
     // borderRadius: 5,
     // padding: 10,
     // marginBottom: 15,
@@ -86,21 +86,23 @@ const styles = StyleSheet.create({
   },
 
   foodImage: {
-    width: 90,
-    height: 80,
-    borderRadius: 8,
+    width: "auto",
+    height: 140,
+    borderRadius: 12,
+    marginBottom: 10,
   },
 
   foodName: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
   },
 
   foodPrice: {
-    fontSize: 16,
+    fontSize: 18,
   },
 
   addToCartButton: {
+    marginTop: 5,
     backgroundColor: 'purple',
     padding: 10,
     borderRadius: 10,
